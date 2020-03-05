@@ -6,11 +6,11 @@ const PORT = process.env.PORT || 5000
 app.use(express.static('public'))
 
 app.get('/index/', (request, response)=>{
-    response.sendFile(path.resolve('/public/index.html'))
+    response.sendFile(path.resolve('./public/index.html'))
 })
 
-app.get('./post/', (request, response) =>{
-    response.sendFile(path.resolve('/public/post.html'))
+app.get('/post/:id', (request, response) =>{
+    response.sendFile(path.resolve('./public/post.html'))
 } )
 
 app.get('/api/:data', (req, res) => {

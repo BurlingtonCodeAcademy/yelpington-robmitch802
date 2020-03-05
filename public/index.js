@@ -43,6 +43,7 @@ async function getPosts() {
     postList.forEach((post) => {
         let title = post.name;
         let id = post.id;
+        console.log('id: ' + id + 'title: ' + title)
         listContainer.innerHTML += `<li><a href='/post/${id}'>${title}</a></li>`    
     })
 }
