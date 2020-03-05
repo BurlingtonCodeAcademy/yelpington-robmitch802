@@ -14,7 +14,7 @@ app.get('/post/:id', (request, response) =>{
 } )
 
 app.get('/api/:data', (req, res) => {
-    res.sent(req.params.data)
+    res.sendFile(path.resolve('./public/' + req.params.data))
 })
 
 app.get('*', (req,res) => {

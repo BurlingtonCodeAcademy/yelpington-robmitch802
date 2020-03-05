@@ -68,5 +68,7 @@ ul {
 }
 
 #restoMap{
+    margin: 1px auto;
     max-width: 95%;
+    min-height: 200px;
 }
