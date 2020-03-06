@@ -24,7 +24,7 @@ async function getResto() {
     postContent.innerHTML += `<li><h4>${title}</h4></li><li>${address}</li><li><p>${phone}</p></li><li><p><a href="${website}">${website}</a></p></li><li><p>${hours}</p></li><li><p>${notes}</p></li>`
     document.title = `Rutlandia | ${title}`
 
-    function getCoord(address) {
+    function placeMarker(address, title) {
         let urlAddress = encodeURIComponent(address)
         let latLong = {}
         fetch(
@@ -41,11 +41,11 @@ async function getResto() {
                 console.log("latitude: " + latLong.lat)
                 console.log("longitude: " + latLong.long)
                 let marker = L.marker([latLong.lat, latLong.long]).addTo(myMap)
-                marker.bindPopup("This restaurant")
+                marker.bindPopup(`<strong>${title}</strong><br />${address}`)
             })
         
     }
-    getCoord(address);
+    placeMarker(address, title);
 } //end getResto function
 getResto();
 
