@@ -45,9 +45,13 @@ async function getResto() {
                 console.log(latLong)
                 console.log("latitude: " + latLong.lat)
                 console.log("longitude: " + latLong.long)
-                let myMap = L.map('restoMap').setView([latLong.lat, latLong.long], 16);
+                //set map focus based on restaurant; increase zoom
+                let myMap = L.map('restoMap').setView([latLong.lat, latLong.long], 16); 
+                //set marker coordinates
                 let marker = L.marker([latLong.lat, latLong.long]).addTo(myMap)
+                //popup text
                 marker.bindPopup(`<strong>${title}</strong><br />${address}`)
+                //add the map tiles
                 L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
                     maxZoom: 20,
                     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -59,7 +63,9 @@ async function getResto() {
 } //end getResto function
 getResto();
 
-/*****map and map-point call */
+document.getElementById('').addEventListener('click', () => {
+    reset();
+})
 
 
 
