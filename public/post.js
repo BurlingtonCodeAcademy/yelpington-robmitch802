@@ -6,6 +6,7 @@ let pathArray = path.split('/')
 let id = pathArray.pop()
 
 let postContent = document.getElementById('entryInfo')
+let commentsContent = document.getElementById('commentsBox')
 
 async function getResto() {
     let content = await fetch(`https://json-server.burlingtoncodeacademy.now.sh/restaurants/${id}`)
@@ -21,8 +22,12 @@ async function getResto() {
     let hours = content.hours
     let notes = content.notes
 
-    postContent.innerHTML += `<li><h4>${title}</h4></li><li>${address}</li><li><p>${phone}</p></li><li><p><a href="${website}">${website}</a></p></li><li><p>${hours}</p></li><li><p>${notes}</p></li>`
+    postContent.innerHTML += `<li><h2>${title}</h2></li><li>${address}</li><li><p>${phone}</p></li><li><p><a href="${website}">${website}</a></p></li><li><p>${hours}</p>`
     document.title = `Rutlandia | ${title}`
+    notes.forEach((note) => {
+        commentsBox.innerHTML += `<li class="comments"><p><strong>"</strong>${note}<strong>"</strong><p></li>`
+    })
+
 
     function placeMarker(address, title) {
         let urlAddress = encodeURIComponent(address)
@@ -40,20 +45,21 @@ async function getResto() {
                 console.log(latLong)
                 console.log("latitude: " + latLong.lat)
                 console.log("longitude: " + latLong.long)
+                let myMap = L.map('restoMap').setView([latLong.lat, latLong.long], 16);
                 let marker = L.marker([latLong.lat, latLong.long]).addTo(myMap)
                 marker.bindPopup(`<strong>${title}</strong><br />${address}`)
+                L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
+                    maxZoom: 20,
+                    attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+                }).addTo(myMap)
             })
-        
+
     }
     placeMarker(address, title);
 } //end getResto function
 getResto();
 
 /*****map and map-point call */
-let myMap = L.map('restoMap').setView([44.475883, -73.212074], 13);
 
-L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
-    maxZoom: 20,
-    attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-}).addTo(myMap)
+
 

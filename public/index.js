@@ -21,13 +21,14 @@ async function getPosts() {
         console.log('id: ' + id + 'title: ' + title)
         listContainer.innerHTML += `<li><a href='/post/${id}'>${title}</a></li>`
         let address = post.address;
-        placeMarker(address, title)
+        let website = `/post/${id}`
+        placeMarker(address, title, website)
     })
 }
 
 getPosts();
 
-function placeMarker(address, title) {
+function placeMarker(address, title, website) {
     let urlAddress = encodeURIComponent(address)
     let latLong = {}
     fetch(
@@ -44,7 +45,7 @@ function placeMarker(address, title) {
             console.log("latitude: " + latLong.lat)
             console.log("longitude: " + latLong.long)
             let marker = L.marker([latLong.lat, latLong.long]).addTo(myMap)
-            marker.bindPopup(`<strong>${title}</strong><br />${address}`)
+            marker.bindPopup(`<strong><a href="${website}">${title}</a></strong><br />${address}`)
         })
     
 }

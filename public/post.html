@@ -14,13 +14,27 @@
     crossorigin=""></script>
 </head>
 <body>
-    <div id="siteHeader">Site Header here</div>
-    <div id="entryHeader">Restaurant Header here</div>    
+    <div id="siteHeader">Rutlandia</div>
+   
     <div id="restoMap"></div>
+    <div id="entryHeader"></div> 
     <div id="entryBody">
         <ul id="entryInfo">
 
         </ul>
+        <ul id="commentsBox">
+            <li class="commentHeader">People are saying: </li>
+
+        </ul>
+        <ul>
+            <div id="commentSubmit">
+                <label for="newComment">Add your thoughts:</label><br />
+                <input type="textarea" name="newComment" id="newComment" /> <br />
+                <input type="text" name="newAuthor" id="newAuthor" /> <br />
+                <button type="submit">Submit</button>
+            </div>
+        </ul>
+
     </div>
     <footer>
         <div id="siteInfo"></div>
