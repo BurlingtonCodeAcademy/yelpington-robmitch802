@@ -15,13 +15,22 @@
 </head>
 <body>
     <div id="siteHeader">Rutlandia</div>
-   
-    <div id="restoMap"></div>
-    <div id="entryHeader"></div> 
-    <div id="entryBody">
-        <ul id="entryInfo">
-
-        </ul>
+    <div id="mapBox">
+        <div id="col-1">
+            <div id="restoMap"></div>
+        </div>
+        <div id="col-2">
+            <div id="entryHeader"></div> 
+            <div id="entryBody">
+                <ul id="entryInfo">
+        
+                </ul>
+               
+        
+            </div>
+        </div>
+    </div>
+    <div class="commentsContainer">
         <ul id="commentsBox">
             <li class="commentHeader">People are saying: </li>
 
@@ -32,14 +41,31 @@
                 <textarea placeholder="Comment" name="newComment" id="newComment"></textarea> <br />
                 <label for="newAuthor">Your name:</label><br />
                 <input type="text" placeholder="Your Name" name="newAuthor" id="newAuthor" /> <br />
-                <button type="submit" id="submitButton">Submit</button>
+                <button class ="btn" type="submit" id="submitButton">Submit</button>
             </div>
         </ul>
-
     </div>
+    
+    
     <footer>
-        <div id="siteInfo"></div>
+        <div id="siteInfo">
+            <div id="siteDescription">
+                <p>Rutlandia is a celebration of all things Rutland and the Killington Valley, starting with the restaurants. </p>
+            </div>
+            <div id="siteLinks"> 
+                <ul>
+                    <li><i class="fas fa-phone"></i> phone</li>
+                    <li><i class="far fa-envelope"></i> email</li>
+                    <li><i class="fab fa-facebook-square"></i> facebook</li>
+                    <li><i class="fab fa-twitter-square"></i>twitter</li>
+                    <li><i class="fab fa-instagram"></i>instagram</li>
+                    <li><i class="fas fa-home"></i>address</li>
+                </ul>
+            </div>
+        </div>
+        <div id="copyright">Copyright &copy; 2020 by Rutlandia Incorporated. </div>
     </footer>
     <script src="../post.js" ></script>
+    <script src="https://kit.fontawesome.com/6e9a3147d8.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -6,8 +6,23 @@ let pathArray = path.split('/')
 let id = pathArray.pop()
 
 let postContent = document.getElementById('entryInfo')
+
 let commentsContent = document.getElementById('commentsBox')
 
+/***comments posting and storage **********/
+// let myStorage = window.localStorage
+
+// commentsContent.addEventListener('submit', (event) => {
+//     let commentArray = myStorage.getItem('comments') || []
+
+//     commentArray.push({name: event.target.body.author, comment: event.target.body.comment})
+// })
+
+// myStorage.getItem('comments') ? myStorage.removeItem('comments') : null
+
+// myStorage.setItem('comments', commentArray)
+
+/*****restaurant details *****************/
 async function getResto() {
     let content = await fetch(`https://json-server.burlingtoncodeacademy.now.sh/restaurants/${id}`)
         .then((response) => {

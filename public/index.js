@@ -49,3 +49,38 @@ function placeMarker(address, title, website) {
         })
     
 }
+
+//****new resto api fetch */
+
+fetch('./api/all.json')
+    .then((res) => {
+       return res.json();
+    }) 
+    .then((idList) => {
+        idList.forEach((id) => {
+            let restoName = id.split('-').join(' ')
+            let liElement = document.createElement('li')
+            let anchor = document.createElement('a')
+            anchor.setAttribute('href', './restaurant.html?' + id)
+            anchor.innerText = restoName 
+            liElement.appendChild(anchor)
+            restoList.appendChild(liElement)
+        })
+    })
+/*** resto page fetch */
+    let query = window.location.search
+    let id = query.split('/')
+
+    let displayName = document.getElementById('title')
+
+    fetch(`/rest-data/${id}.json`)
+        .then(res => res.json())
+        .then ((jsonRes) => {
+            console.log(jsonRes)
+            displayName.innerText = jsonRes.name
+            fetch(`https://nominatim.openstreetmap.org/search/?q=${jsonRes.address}&format=json`)
+            .then(res => res.json())
+            .then((restLoc) => {
+                console.log(restLoc)
+            })
+        })
