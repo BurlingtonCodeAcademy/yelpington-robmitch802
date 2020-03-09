@@ -19,9 +19,8 @@ body{
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto, minmax(100px, 1fr));
-    grid-template-rows: repeat(auto, minmax(200px, 1fr))
+    display: flex;
+    flex-direction:column;
 }
 
 #siteHeader{
@@ -38,11 +37,58 @@ body{
 }
 
 #searchBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: .4rem;
+    padding: .3rem;
+    max-width: 95%;
+}
+/************ for mobile ******/
+#mapBox{
+    display: flex;
+    flex-direction: column;
+}
+#col-1{
+    min-width: 100%;
+}
+#col-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 97%;
+    min-width: 96%;
+    margin-top: 1rem;
     border-radius: 5px;
     border-style: solid;
     border-color: slategray;
     border-width: .75px;
     padding: .4rem;
+    margin: 0px auto;
+}
+
+/*********for screens*****/
+@media only screen and (min-width: 600px) {
+    #mapBox{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    #col-1{
+        min-width: 64%;
+    }
+    #col-2{
+        min-width: 34%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 1rem;
+        border-radius: 5px;
+        border-style: solid;
+        border-color: slategray;
+        border-width: .75px;
+        padding: .4rem;
+        margin: 0px auto;
+    }
 }
 
 img {
@@ -69,6 +115,13 @@ ul {
     max-width: 95%;
     min-height:200px;
 }
+@media only screen and (min-width:600px) {
+    #mainMap{
+        margin: 1px auto;
+        max-width: 95%;
+        min-height: 400px;
+    }
+}
 
 #restoList{
     text-decoration: none;
@@ -76,7 +129,6 @@ ul {
 
 .restoItem{
     text-decoration: none;
-
 }
 
 /******post styles **************/
@@ -102,11 +154,42 @@ ul {
 }
 #newComment{
     min-height: 4rem;
-    min-width: 80%
+    min-width: 80%;
+    border-style: solid;
+    border-color: lightgrey;
+    border-radius: 3px;
+    box-shadow: 0px 4px 8px 0px gray;
+    margin-bottom: .8rem;
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
 }
+@media only screen and (min-width:600px) {
+    #newComment {
+        min-width: 45%;
+        border-style: solid;
+        border-color: lightgrey;
+        border-radius: 3px;
+        box-shadow: 0px 4px 8px 0px gray;
+        margin-bottom: .8rem;
+        font-size: 1.2em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
 #newAuthor{
     min-height: 1.2rem;
     min-width: 70%;
+}
+@media only screen and (min-width: 600px) {
+    #newAuthor{
+        min-height: 1.2rem;
+        min-width: 43%;
+        border-style: solid;
+        border-color: lightgrey;
+        border-radius: 3px;
+        box-shadow: 0px 4px 8px 0px gray;
+        margin-bottom: .8rem;
+    }
 }
 
 #restoMap{
@@ -114,5 +197,18 @@ ul {
     max-width: 95%;
     min-height: 200px;
 }
+li .right{
+    text-justify: right;
+    font-style: none;
+}
 /**********footer styles **********/
 
+.right {
+    padding-left: 3px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.left {
+    margin: 0px;
+}

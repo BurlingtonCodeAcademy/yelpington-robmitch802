@@ -63,9 +63,10 @@ async function getResto() {
 } //end getResto function
 getResto();
 
-document.getElementById('').addEventListener('click', () => {
-    reset();
+document.getElementById('submitButton').addEventListener('click', () => {
+    let comment = document.getElementById('newComment').value;
+    let author = document.getElementById('newAuthor').value;
+    let commentBox = document.getElementById('commentsBox')
+    commentBox.innerHTML += `<li><p><strong>"</strong>${comment}<strong>"</strong></p></li><li class="right"><p> -<strong> ${author}</strong></p></li>`
 })
-
-
 

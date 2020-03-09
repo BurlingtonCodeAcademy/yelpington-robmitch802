@@ -1,4 +1,4 @@
-let myMap = L.map('mainMap').setView([44.475883, -73.212074], 12);
+let myMap = L.map('mainMap').setView([44.475883, -73.212074], 13);
 
 L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
     maxZoom: 20,
