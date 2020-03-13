@@ -1,11 +1,11 @@
 {
   "name": "yelpington",
   "version": "1.0.0",
-  "description": "Burlington Code Academy restaurant app",
+  "description": "Rob's BCA restaurant app project",
   "main": "index.js",
   "scripts": {
     "test": "node sanityCheck.js",
-    "start": "npx node-static ."
+    "start": "node app.js "
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/BurlingtonCodeAcademy/yelpington#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "mime-types": "^2.1.18",
     "node-static": "^0.7.11"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {},
+  "keywords": []
 }
